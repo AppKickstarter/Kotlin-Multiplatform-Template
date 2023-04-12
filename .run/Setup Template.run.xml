@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Setup Template" type="JetRunConfigurationType">
+    <option name="MAIN_CLASS_NAME" value="cli.app.MainKt" />
+    <module name="AppKickstarter.setup.main" />
+    <shortenClasspath name="NONE" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
