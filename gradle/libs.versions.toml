@@ -1,0 +1,84 @@
+[versions]
+compileSdk = "34"
+targetSdk = "34"
+minSdk = "26"
+accompanistSystemuicontroller = "0.32.0"
+activityCompose = "1.8.0"
+androidGradlePlugin = "8.1.0"
+appcompat = "1.6.1"
+calfUi = "0.2.0"
+compose-multiplatform = "1.5.10-rc01"
+coreKtx = "1.12.0"
+imageLoader = "1.6.8"
+jtokkit = "0.5.0"
+koin = "3.4.2"
+kotlin = "1.9.20-RC"
+kotlinxDatetime = "0.4.0"
+markdown = "0.4.1"
+napier = "2.6.1"
+openaiClient = "3.5.0"
+playServicesAds = "22.4.0"
+resources = "0.3.2"
+settings = "1.0.0"
+uuid = "0.7.0"
+voyager = "1.0.0-rc08"
+revenuecat = "7.0.1"
+kmm-viewmodel = "1.0.0-ALPHA-6"
+sqlDelight = "2.0.0"
+moko-resources = "0.23.0"
+ktor = "2.3.5"
+kotlinx-serialization = "1.6.0"
+
+[libraries]
+accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanistSystemuicontroller" }
+activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+calf-filepicker = { module = "com.mohamedrejeb.calf:calf-file-picker", version.ref = "calfUi" }
+calf-ui = { module = "com.mohamedrejeb.calf:calf-ui", version.ref = "calfUi" }
+sqldelight-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
+appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+coroutines-extensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
+moko-resources-generator = { module = "dev.icerock.moko:resources-generator", version.ref = "moko-resources" }
+image-loader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "imageLoader" }
+jtokkit = { module = "com.knuddels:jtokkit", version.ref = "jtokkit" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-workmanager = { module = "io.insert-koin:koin-androidx-workmanager", version.ref = "koin" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
+markdown = { module = "org.jetbrains:markdown", version.ref = "markdown" }
+multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "settings" }
+multiplatform-settings-coroutines = { module = "com.russhwolf:multiplatform-settings-coroutines", version.ref = "settings" }
+multiplatform-settings-datastore = { module = "com.russhwolf:multiplatform-settings-datastore", version.ref = "settings" }
+napier = { module = "io.github.aakira:napier", version.ref = "napier" }
+sqldelight-native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
+openai-client = { module = "com.aallam.openai:openai-client", version.ref = "openaiClient" }
+play-services-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "playServicesAds" }
+resources = { module = "com.goncalossilva:resources", version.ref = "resources" }
+uuid = { module = "com.benasher44:uuid", version.ref = "uuid" }
+voyager-navigator = { group = "cafe.adriel.voyager", name = "voyager-navigator", version.ref = "voyager" }
+voyager-koin = { group = "cafe.adriel.voyager", name = "voyager-koin", version.ref = "voyager" }
+voyager-transitions = { group = "cafe.adriel.voyager", name = "voyager-transitions", version.ref = "voyager" }
+revenuecat = { group = "com.revenuecat.purchases", name = "purchases", version.ref = "revenuecat" }
+kmm-viewmodel = { group = "com.rickclephas.kmm", name = "kmm-viewmodel-core", version.ref = "kmm-viewmodel" }
+ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
+ktor-serialization-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-content-negociation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+moko-resources = { group = "dev.icerock.moko", name = "resources", version.ref = "moko-resources" }
+moko-resources-compose = { group = "dev.icerock.moko", name = "resources-compose", version.ref = "moko-resources" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-client-ios = { module = "io.ktor:ktor-client-ios", version.ref = "ktor" }
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version = "20.5.0" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
+moko-resources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko-resources" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqlDelight" }
+jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+nativecocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }

@@ -1,6 +1,5 @@
 package com.lduboscq.appkickstarter.list
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue

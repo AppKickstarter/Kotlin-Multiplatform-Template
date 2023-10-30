@@ -1,23 +1,23 @@
 package com.lduboscq.appkickstarter.ui
 
 import com.seiko.imageloader.ImageLoader
-import com.seiko.imageloader.cache.memory.maxSizePercent
 import com.seiko.imageloader.component.setupDefaultComponents
+import com.seiko.imageloader.defaultImageResultMemoryCache
 import okio.Path.Companion.toPath
 import platform.Foundation.NSCachesDirectory
-import platform.Foundation.NSFileManager
+import platform.Foundation.NSSearchPathForDirectoriesInDomains
 import platform.Foundation.NSUserDomainMask
 
 actual fun generateImageLoader(): ImageLoader {
     return ImageLoader {
-        commonConfig()
         components {
-            setupDefaultComponents(imageScope)
+            setupDefaultComponents()
         }
         interceptor {
+            // cache 100 success image result, without bitmap
+            defaultImageResultMemoryCache()
             memoryCacheConfig {
-                // Set the max size to 25% of the app's available memory.
-                maxSizePercent(0.25)
+                maxSizeBytes(32 * 1024 * 1024) // 32MB
             }
             diskCacheConfig {
                 directory(getCacheDir().toPath().resolve("image_cache"))
@@ -28,11 +28,9 @@ actual fun generateImageLoader(): ImageLoader {
 }
 
 private fun getCacheDir(): String {
-    return NSFileManager.defaultManager.URLForDirectory(
+    return NSSearchPathForDirectoriesInDomains(
         NSCachesDirectory,
         NSUserDomainMask,
-        null,
         true,
-        null,
-    )!!.path.orEmpty()
+    ).first() as String
 }

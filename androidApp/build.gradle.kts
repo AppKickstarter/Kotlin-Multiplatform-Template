@@ -1,50 +1,43 @@
+@file:Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    kotlin("multiplatform")
-    id("com.android.application")
-    id("org.jetbrains.compose")
+    alias(libs.plugins.multiplatform)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.compose)
 }
 
 kotlin {
-    android()
+    androidTarget()
     sourceSets {
-        val androidMain by getting {
+        androidMain {
             dependencies {
-                implementation(project(":shared"))
-                implementation("androidx.appcompat:appcompat:1.6.1")
-
-                implementation(platform("androidx.compose:compose-bom:2023.01.00"))
-                implementation("androidx.compose.material:material")
-                implementation("androidx.compose.material3:material3")
-                implementation("androidx.compose.ui:ui")
-                implementation("androidx.compose.ui:ui-tooling")
-                implementation("androidx.compose.foundation:foundation")
-                implementation("androidx.compose.animation:animation")
-                implementation("androidx.compose.material:material-icons-core")
-                implementation("androidx.compose.material:material-icons-extended")
-                implementation("androidx.activity:activity-compose:1.7.0")
-
-                implementation("com.google.accompanist:accompanist-systemuicontroller:0.29.2-rc")
-                implementation("com.google.accompanist:accompanist-permissions:0.29.1-alpha")
+                implementation(projects.shared)
+                implementation(libs.appcompat)
+                implementation(libs.activity.compose)
+                implementation(libs.revenuecat)
+                implementation(libs.kmm.viewmodel)
             }
         }
     }
 }
 
-val properties = org.jetbrains.kotlin.konan.properties.Properties()
-properties.load(project.rootProject.file("local.properties").inputStream())
-
 android {
-    compileSdk = 33
+    namespace = "com.lduboscq.appkickstarter.androidapp"
+    compileSdk = libs.versions.compileSdk.get().toInt()
     defaultConfig {
         applicationId = "com.lduboscq.appkickstarter.android"
-        minSdk = 24
-        targetSdk = 33
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    kotlin {
+        jvmToolchain(11)
     }
 
     buildTypes {
@@ -60,4 +53,6 @@ android {
             )
         }
     }
+
+    sourceSets["main"].manifest.srcFile("src/main/AndroidManifest.xml")
 }
